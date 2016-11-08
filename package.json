@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-babel",
-  "version": "0.0.3",
-  "description": "React Webpack Babel Starter Kit",
+  "name": "slackr-graphql-subscriptions-starter-kit",
+  "version": "0.0.1",
+  "description": "A realtime React starter kit powered by GraphQL Subscriptions. The app is a slack clone and features real-time messaging and social authentication.",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
@@ -10,23 +10,33 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/scaphold-io/slackr-graphql-subscriptions-starter-kit"
   },
-  "author": "Ali Al Dallal",
+  "author": "Michael Paris",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
+  "homepage": "https://scaphold.io",
   "dependencies": {
+    "apollo-client": "^0.5.0",
+    "auth0-lock": "^10.5.1",
     "bootstrap": "^4.0.0-alpha.3",
+    "graphql-tag": "^0.1.16",
+    "install": "^0.8.2",
+    "json-loader": "^0.5.4",
     "node-sass": "^3.10.1",
+    "npm": "^3.10.9",
     "react": "15.3.2",
+    "react-apollo": "^0.5.16",
     "react-dom": "15.3.2",
-    "sass-loader": "^4.0.2"
+    "react-router": "^3.0.0",
+    "sass-loader": "^4.0.2",
+    "subscriptions-transport-ws": "^0.3.0"
   },
   "devDependencies": {
     "babel-core": "6.17.0",
     "babel-loader": "6.2.7",
     "babel-plugin-transform-class-properties": "^6.16.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",

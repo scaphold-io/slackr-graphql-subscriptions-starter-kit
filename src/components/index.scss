@@ -1,0 +1,90 @@
+.blueBg {
+	background-color: red;
+	color: white;
+}
+
+ul {
+	list-style: none;
+	li {
+		a {
+			color: white;
+		}
+	}
+}
+
+.sideBar {
+	background-color: rgb(60, 42, 59);
+	color: white; 
+	position: fixed;
+	left: 0; 
+	top: 0; 
+	bottom: 0; 
+	width: 300px; 
+	padding: 15px; 
+}
+
+.mainContent {
+	position: fixed;
+	left: 300px; 
+	top: 0; 
+	bottom: 0; 
+	right: 0; 
+	padding: 15px;
+	background-color: white;
+}
+
+/**
+*	Messages
+*/
+
+.messagePage {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+
+	.messageHeaderWrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 15px;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.messageListWrapper {
+		overflow: scroll;
+		position: absolute;
+		top: 69px;
+		left: 0;
+		right: 0;
+		bottom: 50px;
+	}
+
+	.messageInputWrapper {
+		position: absolute;
+		left: 15px;
+		right: 15px;
+		bottom: 15px;
+	}
+
+	.messageBlock {
+		padding: 5px;
+
+		.messageIconBlock {
+			display: inline;
+		}
+
+		.messageContent {
+			display: inline;
+		}
+
+		.messageHeader {
+			h6 {
+				display: inline;
+				margin-right: 10px;
+			}
+		}
+	}
+}

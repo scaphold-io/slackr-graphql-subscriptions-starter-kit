@@ -5,6 +5,11 @@ module.exports = [
 		loader: "babel"
 	},
 	{
+		test: /\.json?$/,
+		exclude: /(bower_components|public)/,
+		loader: "json-loader"
+	},
+	{
 		test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
 		exclude: /(node_modules|bower_components)/,
 		loader: "file"
