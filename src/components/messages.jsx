@@ -114,12 +114,6 @@ class Messages extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   componentWillReceiveProps(newProps) {
     if (
       !newProps.data.loading && 
