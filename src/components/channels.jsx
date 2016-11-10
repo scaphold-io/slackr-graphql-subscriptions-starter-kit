@@ -140,7 +140,16 @@ class Channels extends React.Component {
     const profile = this.auth.getProfile();
     return (
       <div>
-        <h3>Channels</h3>
+        <h3>
+          Channels 
+          <a href="https://scaphold.io">
+            <img 
+              style={{ float: 'right', width: '30px', height: '30px' }}
+              target="_blank" 
+              src="https://scaphold.io/5d9897e87a7c597b0589f95cde19ad9d.png">
+            </img>
+          </a>
+        </h3>
         {
           this.props.data.viewer ?
             <ul>
@@ -158,6 +167,9 @@ class Channels extends React.Component {
               <Link onClick={this.startLogin} style={{ color: 'white' }}>Login</Link>
             </div> :
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '15px', textAlign: 'center'}}>
+              <div style={{ marginBottom: '5px' }}>
+                {profile ? profile.nickname : ''}
+              </div>
               {
                 profile ?
                   <div>
@@ -165,10 +177,7 @@ class Channels extends React.Component {
                   </div> : 
                   null
               }
-              <div>
-                {profile ? profile.nickname : ''}
-              </div>
-              <button onClick={this.logout}>Logout</button>
+              <div onClick={this.logout}>Logout</div>
             </div>
         }
       </div>
