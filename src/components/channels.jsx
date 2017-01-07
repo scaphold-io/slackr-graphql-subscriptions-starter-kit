@@ -26,7 +26,6 @@ mutation Login($credential: LoginUserWithAuth0LockInput!) {
       id
       username
     }
-    token
   }
 }
 `;
@@ -48,7 +47,7 @@ query GetPublicChannels($wherePublic: ChannelWhereArgs, $orderBy: [ChannelOrderB
 `;
 
 class Channels extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.onAuthenticated = this.onAuthenticated.bind(this);
@@ -86,17 +85,17 @@ class Channels extends React.Component {
         }
       },
       updateQuery: (prev, { subscriptionData }) => {
-        return { 
-          viewer: { 
-            allChannels: { 
+        return {
+          viewer: {
+            allChannels: {
               edges: [
                 ...prev.viewer.allChannels.edges,
                 {
                   node: subscriptionData.data.subscribeToChannel.value
                 }
-              ] 
-            } 
-          } 
+              ]
+            }
+          }
         };
       },
     });
@@ -117,7 +116,7 @@ class Channels extends React.Component {
       return that.props.updateUser({
         id: scapholdUserId,
         picture: profilePicture,
-        nickname: nickname 
+        nickname: nickname
       });
 
       // Cause a UI update :)
@@ -141,11 +140,11 @@ class Channels extends React.Component {
     return (
       <div>
         <h3>
-          Channels 
+          Channels
           <a href="https://scaphold.io">
-            <img 
+            <img
               style={{ float: 'right', width: '30px', height: '30px' }}
-              target="_blank" 
+              target="_blank"
               src="https://scaphold.io/5d9897e87a7c597b0589f95cde19ad9d.png">
             </img>
           </a>
@@ -174,7 +173,7 @@ class Channels extends React.Component {
                 profile ?
                   <div>
                     <img src={profile.picture} style={{ marginBottom: '5px', width: '40px', height: '40px', borderRadius: '20px' }}/>
-                  </div> : 
+                  </div> :
                   null
               }
               <div onClick={this.logout}>Logout</div>
@@ -185,7 +184,7 @@ class Channels extends React.Component {
   }
 }
 
-const ChannelsWithData = compose( 
+const ChannelsWithData = compose(
   graphql(PublicChannelsQuery, {
     options: (props) => {
       return {

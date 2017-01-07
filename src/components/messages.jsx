@@ -102,13 +102,13 @@ class Messages extends React.Component {
               ...subscriptionData.data.subscribeToMessage.value,
             }
           }
-        ]; 
+        ];
         return {
-          getChannel: { 
+          getChannel: {
             messages: {
               edges: newEdges,
-            } 
-          } 
+            }
+          }
         };
       },
     });
@@ -116,7 +116,7 @@ class Messages extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (
-      !newProps.data.loading && 
+      !newProps.data.loading &&
       newProps.data.getChannel
     ) {
       if (
@@ -152,7 +152,7 @@ class Messages extends React.Component {
   }
 
   render() {
-    return this.props.data.getChannel ? 
+    return this.props.data.getChannel ?
       (
         <div className={styles.messagePage}>
           <div className={styles.messageHeaderWrapper}>
@@ -166,10 +166,10 @@ class Messages extends React.Component {
                     <div className={styles.messageBlock}>
                       {
                         edge.node.author && edge.node.author.picture ?
-                          <img 
-                            style={{ width: '30px', height: '30px', borderRadius: '15px', float: 'left', marginLeft: '-36px', marginTop: '10px' }} 
-                            src={edge.node.author.picture} 
-                          /> : 
+                          <img
+                            style={{ width: '30px', height: '30px', borderRadius: '15px', float: 'left', marginLeft: '-36px', marginTop: '10px' }}
+                            src={edge.node.author.picture}
+                          /> :
                           null
                       }
                       <div className={styles.messageContent}>
@@ -181,7 +181,7 @@ class Messages extends React.Component {
                                   (edge.node.author.nickname || edge.node.author.username) :
                                   'Anonymous'
                               }
-                            </h6>  
+                            </h6>
                           }
                           {
                             <span className="text-muted">
