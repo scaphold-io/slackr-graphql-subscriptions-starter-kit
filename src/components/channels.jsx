@@ -104,11 +104,10 @@ class Channels extends React.Component {
   onAuthenticated(auth0Profile, tokenPayload) {
     const identity = auth0Profile.identities[0];
     const that = this;
+    debugger;
     this.props.loginUser({
-      identity: Object.assign(identity, {
-        access_token: tokenPayload.accessToken,
-      }),
-      token: tokenPayload.idToken,
+      identity: identity,
+      access_token: tokenPayload.accessToken,
     }).then(res => {
       const scapholdUserId = res.data.loginUserWithAuth0Lock.user.id;
       const profilePicture = auth0Profile.picture;

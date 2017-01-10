@@ -14,7 +14,7 @@ export default class AuthService extends EventEmitter {
   }
 
   _doAuthentication(tokenPaylod){
-    this.lock.getProfile(tokenPaylod.idToken, (error, profile) => {
+    this.lock.getUserInfo(tokenPaylod.accessToken, (error, profile) => {
       if (error) {
         this.emit('error', error);
         return;

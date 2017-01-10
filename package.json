@@ -17,7 +17,7 @@
   "homepage": "https://scaphold.io",
   "dependencies": {
     "apollo-client": "^0.5.0",
-    "auth0-lock": "^10.5.1",
+    "auth0-lock": "^10.9.1",
     "bootstrap": "^4.0.0-alpha.3",
     "graphql-tag": "^0.1.16",
     "install": "^0.8.2",
