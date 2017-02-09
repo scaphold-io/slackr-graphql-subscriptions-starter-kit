@@ -20,8 +20,8 @@ mutation UpdateUser($user: UpdateUserInput!) {
 `;
 
 const LoginQuery = gql`
-mutation Login($credential: LoginUserWithAuth0LockInput!) {
-  loginUserWithAuth0Lock(input: $credential) {
+mutation Login($credential: LoginUserWithAuth0Input!) {
+  loginUserWithAuth0(input: $credential) {
     user {
       id
       username
@@ -104,12 +104,10 @@ class Channels extends React.Component {
   onAuthenticated(auth0Profile, tokenPayload) {
     const identity = auth0Profile.identities[0];
     const that = this;
-    debugger;
     this.props.loginUser({
-      identity: identity,
-      access_token: tokenPayload.accessToken,
+      idToken: tokenPayload.idToken,
     }).then(res => {
-      const scapholdUserId = res.data.loginUserWithAuth0Lock.user.id;
+      const scapholdUserId = res.data.loginUserWithAuth0.user.id;
       const profilePicture = auth0Profile.picture;
       const nickname = auth0Profile.nickname;
       return that.props.updateUser({

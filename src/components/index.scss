@@ -14,21 +14,21 @@ ul {
 
 .sideBar {
 	background-color: rgb(60, 42, 59);
-	color: white; 
+	color: white;
 	position: fixed;
-	left: 0; 
-	top: 0; 
-	bottom: 0; 
-	width: 300px; 
-	padding: 15px; 
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 300px;
+	padding: 15px;
 }
 
 .mainContent {
 	position: fixed;
-	left: 300px; 
-	top: 0; 
-	bottom: 0; 
-	right: 0; 
+	left: 300px;
+	top: 0;
+	bottom: 0;
+	right: 0;
 	padding: 15px;
 	background-color: white;
 }
@@ -85,6 +85,43 @@ ul {
 				display: inline;
 				margin-right: 10px;
 			}
+		}
+	}
+
+	.searchResultsHeader {
+		padding: 5px;
+	}
+
+	.searchResultsAlgolia {
+		color: #636c72;
+		max-height: 25px;
+		font-size: 10px;
+	}
+
+	.searchResultsWrapper {
+		position: fixed;
+		padding-left: 0;
+		padding-bottom: 30px;
+
+		ul {
+			padding: 0;
+		}
+
+		.searchResultsBlock {
+			padding: 5px 10px;
+
+			/**
+			 * Algolia Search Highlighting
+			 */
+
+			span {
+				background: yellow;
+				font-weight: bold;
+			}
+		}
+
+		.searchResultChannelWrapper {
+			color: #636c72;
 		}
 	}
 }
