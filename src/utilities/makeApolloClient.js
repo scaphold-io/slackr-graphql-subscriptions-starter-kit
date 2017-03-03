@@ -1,8 +1,8 @@
 /* File: makeApolloClient.js */
 
-import addGraphQLSubscriptions from './addGraphQLSubscriptions';
+// import addGraphQLSubscriptions from './addGraphQLSubscriptions';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
-import { Client } from 'subscriptions-transport-ws';
+import { SubscriptionClient, addGraphQLSubscriptions } from 'subscriptions-transport-ws';
 
 // creates a subscription ready Apollo Client instance
 // Note that scaphldUrl expects the url without the http:// or wss://
@@ -23,7 +23,7 @@ function makeApolloClient(scapholdUrl) {
       next();
     },
   }]);
-  const wsClient = new Client(websocketUrl);
+  const wsClient = new SubscriptionClient(websocketUrl);
   const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(networkInterface, wsClient);
 
   const clientGraphql = new ApolloClient({
