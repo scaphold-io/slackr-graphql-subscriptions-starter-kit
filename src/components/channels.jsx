@@ -69,10 +69,12 @@ class Channels extends React.Component {
       document: gql`
         subscription newChannels($subscriptionFilter:ChannelSubscriptionFilter) {
           subscribeToChannel(mutations:[createChannel], filter: $subscriptionFilter) {
-            value {
-              id
-              name
-              createdAt
+            edge {
+              node {
+                id
+                name
+                createdAt
+              }
             }
           }
         }
@@ -85,14 +87,13 @@ class Channels extends React.Component {
         }
       },
       updateQuery: (prev, { subscriptionData }) => {
+        debugger;
         return {
           viewer: {
             allChannels: {
               edges: [
                 ...prev.viewer.allChannels.edges,
-                {
-                  node: subscriptionData.data.subscribeToChannel.value
-                }
+                subscriptionData.data.subscribeToChannel.edge
               ]
             }
           }
@@ -184,7 +185,6 @@ const ChannelsWithData = compose(
   graphql(PublicChannelsQuery, {
     options: (props) => {
       return {
-        returnPartialData: true,
         variables: {
           wherePublic: {
             isPublic: {

@@ -7,8 +7,8 @@ import { SubscriptionClient, addGraphQLSubscriptions } from 'subscriptions-trans
 // creates a subscription ready Apollo Client instance
 // Note that scaphldUrl expects the url without the http:// or wss://
 function makeApolloClient(scapholdUrl) {
-  const graphqlUrl = `https://${scapholdUrl}`;
-  const websocketUrl = `wss://${scapholdUrl}`;
+  const graphqlUrl = `http://${scapholdUrl}`;
+  const websocketUrl = `ws://${scapholdUrl}`;
   const networkInterface = createNetworkInterface(graphqlUrl);
   networkInterface.use([{
     applyMiddleware(req, next) {

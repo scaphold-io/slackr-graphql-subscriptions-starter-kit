@@ -73,15 +73,18 @@ class Messages extends React.Component {
       document: gql`
         subscription newMessages($subscriptionFilter:MessageSubscriptionFilter) {
           subscribeToMessage(mutations:[createMessage], filter: $subscriptionFilter) {
-            value {
-              id
-              content
-              createdAt
-              author {
+            edge {
+              cursor
+              node {
                 id
-                username
-                nickname
-                picture
+                content
+                createdAt
+                author {
+                  id
+                  username
+                  nickname
+                  picture
+                }
               }
             }
           }
@@ -95,13 +98,10 @@ class Messages extends React.Component {
         }
       },
       updateQuery: (prev, { subscriptionData }) => {
+        debugger;
         const newEdges = [
           ...prev.getChannel.messages.edges,
-          {
-            node: {
-              ...subscriptionData.data.subscribeToMessage.value,
-            }
-          }
+          subscriptionData.data.subscribeToMessage.edge
         ];
         return {
           getChannel: {
@@ -219,7 +219,6 @@ const MessagesWithData = compose(
     options: (props) => {
       const channelId = props.params ? props.params.channelId : null;
       return {
-        returnPartialData: true,
         variables: {
           channelId,
           messageOrder: [
