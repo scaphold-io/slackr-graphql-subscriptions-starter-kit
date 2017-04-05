@@ -74,7 +74,6 @@ class Messages extends React.Component {
         subscription newMessages($subscriptionFilter:MessageSubscriptionFilter) {
           subscribeToMessage(mutations:[createMessage], filter: $subscriptionFilter) {
             edge {
-              cursor
               node {
                 id
                 content
@@ -98,7 +97,6 @@ class Messages extends React.Component {
         }
       },
       updateQuery: (prev, { subscriptionData }) => {
-        debugger;
         const newEdges = [
           ...prev.getChannel.messages.edges,
           subscriptionData.data.subscribeToMessage.edge
@@ -161,8 +159,8 @@ class Messages extends React.Component {
           <div className={styles.messageListWrapper}>
             <ul>
               {
-                this.props.data.getChannel.messages.edges.map(edge => (
-                  <li>
+                this.props.data.getChannel.messages.edges.map((edge, i) => (
+                  <li key={i}>
                     <div className={styles.messageBlock}>
                       {
                         edge.node.author && edge.node.author.picture ?

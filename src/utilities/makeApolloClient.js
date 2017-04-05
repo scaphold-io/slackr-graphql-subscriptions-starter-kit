@@ -9,7 +9,7 @@ import { SubscriptionClient, addGraphQLSubscriptions } from 'subscriptions-trans
 function makeApolloClient(scapholdUrl) {
   const graphqlUrl = `https://${scapholdUrl}`;
   const websocketUrl = `wss://${scapholdUrl}`;
-  const networkInterface = createNetworkInterface(graphqlUrl);
+  const networkInterface = createNetworkInterface({ uri: graphqlUrl });
   networkInterface.use([{
     applyMiddleware(req, next) {
       // Easy way to add authorization headers for every request
