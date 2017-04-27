@@ -3,7 +3,7 @@ A realtime react starter kit powered by GraphQL Subscriptions. The app is design
 
 This starter kit is powered by the GraphQL backend-as-a-service [scaphold.io](https://scaphold.io).
 
-Follow the [full tutorial](https://scaphold.io/blog/2016/11/09/build-realtime-apps-with-subs.html) to learn how we made this! It only takes a few minutes!
+Follow the [full tutorial](https://scaphold.io/community/blog/build-realtime-apps-with-subs/) to learn how we made this! It only takes a few minutes!
 
 This is what is looks like!
 
